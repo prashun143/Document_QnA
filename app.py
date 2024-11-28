@@ -10,20 +10,20 @@ from utils import *
 
 load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+os.environ["LANGCHAIN_API_KEY"] = os.getenv["LANGCHAIN_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 prompt = ChatPromptTemplate.from_messages(
     [
-        ("system","you are a helpful assistant. Please provide reposne to user queries"),
-        ("user","Question:{Question}"),
-        ("user","document :{document}")
+        ("system", "you are a helpful assistant. Please provide response to user queries"),
+        ("user", "Question:{Question}"),
+        ("user"," document:{document}")
     ]
 )
 
 st.title("Document QnA")
-file_type = st.sidebar.radio("Uploading Image or Pdf file", ('Image','Pdf'))
+file_type = st.sidebar.radio("Uploading Image or Pdf file", ('Image', 'Pdf'))
 
 uploaded_file = st.sidebar.file_uploader(label="Upload your Document to start query")
 if uploaded_file:
