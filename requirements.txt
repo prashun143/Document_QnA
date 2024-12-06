@@ -7,3 +7,5 @@ langserve
 PyPDF2
 streamlit_pdf_viewer
 pytesseract
+pdf2image
+poppler-utils
